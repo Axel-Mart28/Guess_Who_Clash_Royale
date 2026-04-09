@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Experto: Adivina la Carta de Clash Royale</title>
+    
+    <!-- Aquí agregamos el favicon -->
+    <link rel="icon" type="image/png" href="images/corona.jpg">
+    
+    <!-- El enlace a tu CSS que ya tenías -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Contenedor principal que simulará la pantalla de un móvil o un panel central -->
+    <div id="game-container">
+        
+        <header>
+            <h1>Adivina la Carta</h1>
+            <p>Adivina Quién - Clash Royale</p>
+        </header>
+
+        <main>
+            <!-- PANTALLA 0: Overlay del Video Intro -->
+            <div id="intro-overlay" class="overlay">
+                <button id="btn-play-intro" class="cr-button">Tocar para iniciar</button>
+                <video id="supercell-video" src="videos/intro.mp4" playsinline></video>
+            </div>
+            <!-- PANTALLA 1: Menú de Inicio -->
+            <section id="screen-start" class="screen">
+                <div class="logo-container">
+                    <!-- Aquí podremos poner un logo de CR con CSS -->
+                </div>
+                <h2>Piensa en una carta...</h2>
+                <p>Responde las preguntas y adivinaré en qué carta estás pensando.</p>
+                <button id="btn-start" class="cr-button">Comenzar</button>
+            </section>
+
+            <!-- PANTALLA 2: Interfaz de Preguntas -->
+            <!-- Nota: style="display: none;" lo usamos por ahora para ocultarla. JS lo controlará después -->
+            <section id="screen-question" class="screen" style="display: none;">
+                <h2 id="question-text">¿Es una tropa?</h2>
+                <div class="button-container">
+                    <button id="btn-yes" class="cr-button success">Sí</button>
+                    <button id="btn-no" class="cr-button danger">No</button>
+                </div>
+            </section>
+
+            <!-- PANTALLA 3: Resultado (Cuando el sistema llega a una conclusión) -->
+            <section id="screen-result" class="screen" style="display: none;">
+                <h2>¡Lo tengo!</h2>
+                <p>Estás pensando en:</p>
+                <h3 id="guessed-character">El Mago</h3>
+                
+                <p class="verification-text">¿Acerté?</p>
+                <div class="button-container">
+                    <button id="btn-guess-yes" class="cr-button success">¡Sí!</button>
+                    <button id="btn-guess-no" class="cr-button danger">No...</button>
+                </div>
+            </section>
+
+            <!-- PANTALLA 4: El módulo de Aprendizaje (¡La clave para el 10!) -->
+            <section id="screen-learn" class="screen" style="display: none;">
+                <h2>¡Me has ganado!</h2>
+                <p>Ayúdame a mejorar mi base de conocimientos.</p>
+                
+                <div class="form-group">
+                    <label for="new-char-input">¿En qué carta estabas pensando?</label>
+                    <input type="text" id="new-char-input" placeholder="Ej. Arquero Mágico">
+                </div>
+
+                <div class="form-group">
+                    <label for="new-question-input">Escribe una pregunta de Sí/No que distinga a <strong id="learn-new-name">tu carta</strong> de <strong id="learn-old-name">El Mago</strong>:</label>
+                    <input type="text" id="new-question-input" placeholder="Ej. ¿Su ataque atraviesa enemigos?">
+                </div>
+
+                <div class="form-group">
+                    <p>Para <strong id="learn-new-name-2">tu carta</strong>, la respuesta a esa pregunta es:</p>
+                    <div class="button-container">
+                        <button id="btn-learn-yes" class="cr-button success">Sí</button>
+                        <button id="btn-learn-no" class="cr-button danger">No</button>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+        
+        <footer>
+            <p> Sistemas Expertos</p>
+        </footer>
+
+    </div>
+
+    <!-- Aquí enlazaremos tu archivo JS al final -->
+    <!-- <script src="script.js"></script> -->
+    <script src="js/script.js"></script>
+</body>
+</html>
